@@ -5,3 +5,9 @@
 .navbar-brand {
     margin-left: 1rem;
 }
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999; /* Ajusta este valor según sea necesario */
+  }

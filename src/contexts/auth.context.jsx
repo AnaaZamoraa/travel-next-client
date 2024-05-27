@@ -12,7 +12,6 @@ function AuthProviderWrapper(props) {
     const navigate = useNavigate()
 
     const authenticateUser = () => {
-
         const token = localStorage.getItem('authToken')
 
         if (token) {

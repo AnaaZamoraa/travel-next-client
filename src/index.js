@@ -6,13 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { AuthProviderWrapper } from './contexts/auth.context';
+import { ToastProviderWrapper } from './contexts/toast.context';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router>
-      <App /> 
+      <AuthProviderWrapper>
+        <ToastProviderWrapper>
+          <App />
+        </ToastProviderWrapper>
+      </AuthProviderWrapper>
     </Router>
   </React.StrictMode>
 );
