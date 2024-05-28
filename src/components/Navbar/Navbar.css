@@ -1,13 +1,42 @@
-.custom-toggler {
-    border: none;
-    margin-right: 1rem;
-}
-.navbar-brand {
-    margin-left: 1rem;
-}
-.alert-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999; /* Ajusta este valor según sea necesario */
+.navbar {
+    background-color: #f8f9fa !important;
   }
+  
+  .custom-toggler {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .offcanvas-end {
+    right: 0;
+    left: auto;
+  }
+  
+  .offcanvas-header .btn-close {
+    filter: invert(1);
+  }
+  
+  .offcanvas-title {
+    color: #000;
+  }
+  .transparent-btn {
+  background: none;
+  border: none;
+  color: #000000;
+  padding: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1rem;
+  cursor: default;
+  text-decoration: none;
+}
+
+.transparent-btn:hover,
+.transparent-btn:focus {
+  background: none;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  color: #000000;
+  text-decoration: none;
+}

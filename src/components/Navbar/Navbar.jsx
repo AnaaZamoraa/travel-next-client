@@ -6,115 +6,90 @@ import SignupForm from '../SignupForm/SignupForm';
 import LoginForm from '../LoginForm/LoginForm';
 import { AuthContext } from '../../contexts/auth.context';
 import { Link } from 'react-router-dom';
+import { Navbar, Nav, NavDropdown, Container, Button, Offcanvas, Form } from 'react-bootstrap';
 
-
-function Navbar() {
+function MyNavbar() {
   const { user, logout } = useContext(AuthContext);
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showOffcanvas, setShowOffcanvas] = useState(false);
 
   const handleSignupSuccess = () => {
     setShowSignupModal(false);
     setShowLoginModal(true);
   };
 
-  const handleLoginSuccess = (username) => {
+  const handleLoginSuccess = () => {
     setShowLoginModal(false);
-    
+  };
+
+  const handleToggleOffcanvas = () => {
+    setShowOffcanvas(!showOffcanvas);
   };
 
   return (
-    <div className='Navbar'>
-      <Navbar className="navbar bg-light fixed-top">
-        <div className="container-fluid">
+    <div className="Navbar">
+      <Navbar bg="light" expand="lg" fixed="top" className="navbar">
+        <Container fluid>
           <div className="d-flex align-items-center">
-            <Link to='/'>
+            <Navbar.Brand as={Link} to="/">
               <img 
                 src="https://res.cloudinary.com/dv7nx2bxb/image/upload/v1715702223/travel-next/djehp5gntjcnnabwfkie.png" 
                 alt="logo" 
                 width="40" 
                 height="40" 
               />
-            </Link>
-            <Link className="navbar-brand display-6" to="/all-travels">Every travel</Link>
-            <Link className="navbar-brand display-6" to="/all-experiences">Every experience</Link>
+            </Navbar.Brand>
+            <Navbar.Brand as={Link} to="/all-travels" className="display-6">Every travel</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/all-experiences" className="display-6">Every experience</Navbar.Brand>
           </div>
-          <div className="d-flex">
-            {!user ? (
-              <>
-                <button type="button" className="btn" onClick={() => setShowSignupModal(true)}>
-                  Sign Up
-                </button>
-                <button type="button" className="btn" onClick={() => setShowLoginModal(true)}>
-                  Login
-                </button>
-              </>
-            ) : (
-              <>
-                <button 
-                  className="navbar-toggler custom-toggler" 
-                  type="button" 
-                  data-bs-toggle="offcanvas" 
-                  data-bs-target="#offcanvasNavbar" 
-                  aria-controls="offcanvasNavbar" 
-                  aria-label="Toggle navigation"
-                >
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Nav>
+              {!user ? (
+                <>
+                  <Button className="transparent-btn" onClick={() => setShowSignupModal(true)}>Sign Up</Button>
+                  <Button className="transparent-btn" onClick={() => setShowLoginModal(true)}>Login</Button>
+                </>
+              ) : (
+                <>
                   <img 
-                    src='https://res.cloudinary.com/dv7nx2bxb/image/upload/v1716395666/travel-next/cuux2luiwvi2mfgeuslm.png'
+                    src="https://res.cloudinary.com/dv7nx2bxb/image/upload/v1716395666/travel-next/cuux2luiwvi2mfgeuslm.png"
                     alt="Toggle navigation" 
                     width="40" 
                     height="40" 
+                    className="custom-toggler"
+                    onClick={handleToggleOffcanvas}
                   />
-                </button>
-                <div 
-                  className="offcanvas offcanvas-end" 
-                  tabIndex="-1" 
-                  id="offcanvasNavbar" 
-                  aria-labelledby="offcanvasNavbarLabel"
-                >
-                  <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">Welcome</h5>
-                    <button type="button" className="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="offcanvas"></button>
-                  </div>
-                  <div className="offcanvas-body">
-                    <ul className="navbar-nav justify-content-end flex-grow-1 pe-3 text-start">
-                      <li className="nav-item dropdown">
-                        <Link 
-                          className="nav-link active dropdown-toggle display fs-6" 
-                          to="/profile" 
-                          role="button" 
-                          data-bs-toggle="dropdown" 
-                          aria-expanded="false"
-                        >
-                          Your profile
-                        </Link>
-                        <ul className="dropdown-menu">
-                          <li><Link className="dropdown-item display fs-6" to="/trips">Your trips 🛩</Link></li>
-                          <li><Link className="dropdown-item display fs-6" to="/favorites">Your favorites ✨</Link></li>
-                        </ul>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link display-6" aria-current="page" to="/new-trip">Create a new trip</Link></li>
-                      <li className="nav-item">
-                        <Link className="nav-link display-6" aria-current="page" to="/chats">Chats</Link></li>
-                      <li className="nav-item">
-                        <Link className="nav-link display-6" aria-current="page" to="/logout" onClick={logout}>Logout</Link></li>
-                    </ul>
-                    <form className="d-flex mt-3" role="search">
-                      <input 
-                        className="form-control me-2" 
-                        type="search" 
-                        placeholder="Search" 
-                        aria-label="Search" 
-                      />
-                      <button className="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
-        </div>
+                  <Offcanvas show={showOffcanvas} onHide={handleToggleOffcanvas} placement="end">
+                    <Offcanvas.Header closeButton>
+                      <Offcanvas.Title>Welcome</Offcanvas.Title>
+                    </Offcanvas.Header>
+                    <Offcanvas.Body>
+                      <Nav className="justify-content-end flex-grow-1 pe-3 text-start">
+                        <NavDropdown title="Your profile" id="basic-nav-dropdown">
+                          <NavDropdown.Item as={Link} to="/trips">Your trips 🛩</NavDropdown.Item>
+                          <NavDropdown.Item as={Link} to="/favorites">Your favorites ✨</NavDropdown.Item>
+                        </NavDropdown>
+                        <Nav.Link as={Link} to="/new-trip">Create a new trip</Nav.Link>
+                        <Nav.Link as={Link} to="/chats">Chats</Nav.Link>
+                        <Nav.Link as={Link} to="/" onClick={logout}>Logout</Nav.Link>
+                      </Nav>
+                      <Form className="d-flex mt-3" role="search">
+                        <Form.Control 
+                          type="search" 
+                          placeholder="Search" 
+                          className="me-2" 
+                          aria-label="Search" 
+                        />
+                        <Button variant="outline-primary" type="submit">Search</Button>
+                      </Form>
+                    </Offcanvas.Body>
+                  </Offcanvas>
+                </>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
     
       {!user && (
@@ -135,4 +110,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default MyNavbar;
