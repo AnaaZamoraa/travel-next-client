@@ -2,19 +2,16 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import HomePage from './pages/Homepage/Homepage';
 import ToastMessage from './components/ToastMessage/ToastMessage';
+import AppRoutes from './routes/AppRoutes';
 
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
-      <Routes>
-        <Route path='/' element={<HomePage/>}/>
-      </Routes>
+      <AppRoutes/>
       <ToastMessage/>
     </div>
   );

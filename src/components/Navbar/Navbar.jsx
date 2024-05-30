@@ -62,15 +62,17 @@ function MyNavbar() {
                   />
                   <Offcanvas show={showOffcanvas} onHide={handleToggleOffcanvas} placement="end">
                     <Offcanvas.Header closeButton>
-                      <Offcanvas.Title>Welcome</Offcanvas.Title>
+                      <Offcanvas.Title>Welcome to Travel Next</Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                       <Nav className="justify-content-end flex-grow-1 pe-3 text-start">
                         <NavDropdown title="Your profile" id="basic-nav-dropdown">
-                          <NavDropdown.Item as={Link} to="/trips">Your trips 🛩</NavDropdown.Item>
+                          <NavDropdown.Item as={Link} to="/profile">Your travels and activities 🛩</NavDropdown.Item>
                           <NavDropdown.Item as={Link} to="/favorites">Your favorites ✨</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link as={Link} to="/new-trip">Create a new trip</Nav.Link>
+                        <Nav.Link as={Link} to="/new-travel">Create a new travel</Nav.Link>
+                        <Nav.Link as={Link} to="/new-activity">Create a new activity</Nav.Link>
+
                         <Nav.Link as={Link} to="/chats">Chats</Nav.Link>
                         <Nav.Link as={Link} to="/" onClick={logout}>Logout</Nav.Link>
                       </Nav>
