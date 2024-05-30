@@ -1,3 +1,21 @@
-.background {
+/* Homepage.css */
+
+.HomePage {
+    position: relative;
+  }
+  
+  .background {
     width: 100%;
-}
+    height: auto;
+  }
+  
+  .search-container {
+    position: absolute;
+    top: 20rem; /* Adjust as needed to position the form */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
