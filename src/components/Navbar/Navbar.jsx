@@ -70,7 +70,7 @@ function MyNavbar() {
                           <NavDropdown.Item as={Link} to="/profile">Your travels and activities 🛩</NavDropdown.Item>
                           <NavDropdown.Item as={Link} to="/favorites">Your favorites ✨</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link as={Link} to="/new-travel">Create a new travel</Nav.Link>
+                        <Nav.Link as={Link} to="/travels/create">Create a new travel</Nav.Link>
                         <Nav.Link as={Link} to="/new-activity">Create a new activity</Nav.Link>
 
                         <Nav.Link as={Link} to="/chats">Chats</Nav.Link>

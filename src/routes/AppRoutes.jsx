@@ -9,7 +9,7 @@ const AppRoutes = () => {
             <Route path='/' element={<HomePage/>}/>
             
             <Route element={<PrivateRoute/>}>
-                <Route path="/new-travel" element={<CreateTravelPage/>}/>
+                <Route path="/travels/create" element={<CreateTravelPage/>}/>
             </Route>
         </Routes>
     )
