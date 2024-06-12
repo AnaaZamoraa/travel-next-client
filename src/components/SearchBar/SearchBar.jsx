@@ -33,7 +33,7 @@ function SearchBar() {
           </Col>
           <Col>
             <Form.Group className="mb-3" controlId="persons">
-              <Form.Control type="text" placeholder="How many persons" />
+              <Form.Control type="number" placeholder="Who" />
             </Form.Group>
           </Col>
           <Col>

@@ -1,0 +1,16 @@
+.createTravelPage{ 
+    position: relative
+}
+.background {
+    width: 100%;
+    height: auto;
+}
+.createForm{
+    position: absolute;
+    width: 100%;
+    top: 10rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}

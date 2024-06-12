@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import HomePage from "../pages/Homepage/Homepage";
-import CreateTravelPage from "../pages/CreateTravel/CreateTravel";
+import CreateTravelPage from "../pages/CreateTravel/CreateTravelPage";
 import PrivateRoute from "./PrivateRoutes";
 
 const AppRoutes = () => {

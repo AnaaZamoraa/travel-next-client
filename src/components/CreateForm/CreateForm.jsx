@@ -1,5 +1,5 @@
 import './CreateForm.css'
-import { Form, Button, Col, Row } from 'react-bootstrap'
+import { Form, Button, Col, Row, Image } from 'react-bootstrap'
 
 function CreateForm(){
 
@@ -22,7 +22,7 @@ function CreateForm(){
                     <Form.Label>How many people?</Form.Label>
                     <Form.Control type='persons' placeholder='4 persons'/>
                 </Form.Group>
-                
+                <Button type="submit">Create travel</Button>
             </Form>
         </div>
     )

@@ -6,7 +6,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import { AuthContext } from '../../contexts/auth.context';
 import { ToastContext } from '../../contexts/toast.context';
 
-function LoginForm({ onLoginSuccess, setAlert }) {
+function LoginForm() {
   const [loginData, setLoginData] = useState({
     email: '',
     password: '',
