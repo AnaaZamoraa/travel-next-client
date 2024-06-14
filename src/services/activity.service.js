@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-class TravelService {
+class ActivityService {
 
     constructor() {
 
         this.api = axios.create({
-            baseURL: `${process.env.REACT_APP_API_URL}/travels`
+            baseURL: `${process.env.REACT_APP_API_URL}/activities`
         });
 
         this.api.interceptors.request.use((config) => {
@@ -21,10 +21,10 @@ class TravelService {
 
     }
 
-    createTravel(travelData) {
-        return this.api.post(`/create`, travelData);
+    createActivity(activityData) {
+        return this.api.post(`/create`, activityData);
     }
 }
 
-const travelService = new TravelService();
-export default travelService;
+const activityService = new ActivityService();
+export default activityService;

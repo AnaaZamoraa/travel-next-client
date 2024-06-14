@@ -1,5 +1,5 @@
 import './CreateTravelPage.css'
-import CreateTravelForm from '../../components/CreateForm/CreateTravelForm'
+import CreateTravelForm from '../../components/CreateTravelForm/CreateTravelForm'
 
 function CreateTravelPage (){
     return (
