@@ -24,6 +24,10 @@ class ActivityService {
     createActivity(activityData) {
         return this.api.post(`/create`, activityData);
     }
+
+    getValidTypes() {
+        return this.api.get(`/valid-types`);
+    }
 }
 
 const activityService = new ActivityService();
