@@ -1,24 +1,24 @@
-import './CreateActivityForm.css';
-import { Col, Row, Form, Image, Button } from 'react-bootstrap';
+import './CreateActivityForm.css'
 import { useContext, useState, useEffect } from 'react';
+import { Col, Row, Form, Button } from 'react-bootstrap';
 import uploadServices from '../../services/upload.service';
 import activityService from '../../services/activity.service';
+import Dropzone from '../Dropzone/Dropzone';
 import { ToastContext } from '../../contexts/toast.context';
-import ToastMessage from '../ToastMessage/ToastMessage';
-import Loader from '../Loader/Loader';
-import { FaTrash, FaPlusCircle } from 'react-icons/fa';
 
-function CreateActivityForm({ travelData, setTravelData }) {
+function CreateActivityForm({ onSubmit }) {
     const { showToast } = useContext(ToastContext);
-    const [activityFormData, setActivityFormData] = useState({
-        title: '',
-        type: '',
-        pictures: [],
-        description: '',
-        ratings: [],
-    });
-
     const [validTypes, setValidTypes] = useState([]);
+    const [files, setFiles] = useState([]);
+    const [activities, setActivities] = useState([
+        {
+            title: '',
+            type: '',
+            pictures: [], 
+            description: '', 
+            ratings: []
+        }
+    ]);
 
     useEffect(() => {
         activityService
@@ -31,61 +31,59 @@ function CreateActivityForm({ travelData, setTravelData }) {
             });
     }, []);
 
-    const [loadingImage, setLoadingImage] = useState(false);
-
-    const handleFileUpload = e => {
-        if (activityFormData.pictures.length >= 4) {
-            showToast('You can only upload up to 4 images');
-            return;
-        }
-        setLoadingImage(true);
-
-        const formData = new FormData();
-        formData.append('imageData', e.target.files[0]);
-
-        uploadServices
-            .uploadimage(formData)
-            .then(res => {
-                setActivityFormData(prevState => ({
-                    ...prevState,
-                    pictures: [...prevState.pictures, res.data.cloudinary_url]
-                }));
-                setLoadingImage(false);
-            })
-            .catch(err => {
-                console.log(err);
-                setLoadingImage(false);
-            });
-    };
-
     const handleInputChange = (idx, e) => {
-        const { value, name } = e.target;
-        const updatedActivities = [...travelData.activities];
-        updatedActivities[idx] = { ...updatedActivities[idx], [name]: value };
-        setTravelData({ ...travelData, activities: updatedActivities });
+        const { name, value } = e.target;
+        const newActivities = [...activities];
+        newActivities[idx] = { ...newActivities[idx], [name]: value };
+        setActivities(newActivities);
     };
 
-    const addNewActivity = () => {
-        setTravelData({
-            ...travelData,
-            activities: [...travelData.activities, { title: '', type: '', pictures: [], description: '', ratings: [] }]
+    const handleFilesChange = (newFiles) => {
+        setFiles(newFiles);
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const uploadedImages = [];
+    
+        for (const fileWrapper of files) {
+            try {
+                const formData = new FormData();
+                formData.append('imageData', fileWrapper.file);
+                const response = await uploadServices.uploadImage(formData);
+                uploadedImages.push(response.data.cloudinary_url);
+            } catch (error) {
+                console.error('Error uploading file: ', error);
+                showToast('Error uploading files');
+                return;
+            }
+        }
+    
+        const newActivities = activities.map(activity => ({
+            ...activity,
+            pictures: uploadedImages
+        }));
+    
+        activityService
+        .createActivity(newActivities)
+        .then(response=>{
+            showToast('bien')
+            console.log('Activity created successfully', response.data);
+        })
+        .catch(error => {
+            showToast('mal')
+            console.error('Error creating activity', error);
         });
     };
-
-    const deleteActivity = idx => {
-        const updatedActivities = [...travelData.activities];
-        updatedActivities.splice(idx, 1);
-        setTravelData({ ...travelData, activities: updatedActivities });
-    };
+    
 
     return (
-        <div>
-            <ToastMessage />
-            <Form className='createForm'>
-                {travelData.activities.map((activity, idx) => (
-                    <div key={idx} className="activity-container">
-                        <Row className="mb-3">
-                            <Col>
+        <Form className='create-form' onSubmit={handleSubmit}>
+            {activities.map((activity, idx) => (
+                <div key={idx} className="activity-container">
+                    <Row className="mb-3">
+                        <Col>
+                            <Form.Group controlId={`activity-title-${idx}`}>
                                 <Form.Control
                                     type="text"
                                     placeholder="Title"
@@ -93,8 +91,10 @@ function CreateActivityForm({ travelData, setTravelData }) {
                                     onChange={e => handleInputChange(idx, e)}
                                     name="title"
                                 />
-                            </Col>
-                            <Col>
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group controlId={`activity-type-${idx}`}>
                                 <Form.Select
                                     aria-label="activityType"
                                     value={activity.type}
@@ -106,10 +106,12 @@ function CreateActivityForm({ travelData, setTravelData }) {
                                         <option key={index} value={type}>{type}</option>
                                     ))}
                                 </Form.Select>
-                            </Col>
-                        </Row>
-                        <Row className="mb-3">
-                            <Col>
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row className="mb-3">
+                        <Col>
+                            <Form.Group controlId={`activity-description-${idx}`}>
                                 <Form.Control
                                     as="textarea"
                                     rows={2}
@@ -118,46 +120,27 @@ function CreateActivityForm({ travelData, setTravelData }) {
                                     onChange={e => handleInputChange(idx, e)}
                                     placeholder="Description"
                                 />
-                            </Col>
-                        </Row>
-                        <Row className="mb-3">
-                            <Col>
-                                <Form.Control type="file" onChange={handleFileUpload} />
-                                {loadingImage && <Loader />}
-                                <Row>
-                                    {activity.pictures.map((pic, picIdx) => (
-                                        <Col xs={6} md={4} key={picIdx}>
-                                            <Image src={pic} thumbnail />
-                                        </Col>
-                                    ))}
-                                </Row>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={{ span: 1, offset: 11 }} className="d-grid">
-                                <Button
-                                    className="deleteActivityButton"
-                                    onClick={() => deleteActivity(idx)}
-                                >
-                                    <FaTrash />
-                                </Button>
-                            </Col>
-                        </Row>
-                        {idx !== travelData.activities.length - 1 && <hr className="activity-separator" />}
-                    </div>
-                ))}
-                <Row>
-                    <Col md={{ span: 1, offset: 11 }} className="d-grid">
-                        <Button
-                            className="addActivityButton"
-                            onClick={addNewActivity}
-                        >
-                            <FaPlusCircle />
+                            </Form.Group>
+                        </Col>
+                    </Row>
+                    <Row className="mb-3">
+                        <Col>
+                            <Dropzone 
+                                index={idx} 
+                                maxFiles={4}
+                                onFilesChange={handleFilesChange} />
+                        </Col>
+                    </Row>
+                </div>
+            ))}
+                <Row className="mt-3">
+                    <Col className="d-grid">
+                        <Button type="submit" className="submitActivityButton">
+                            Create Activity
                         </Button>
                     </Col>
                 </Row>
-            </Form>
-        </div>
+        </Form>
     );
 }
 

@@ -1,11 +1,11 @@
-.createTravelPage{ 
-    position: relative
+.create-travel-page{ 
+    position: relative;
+    background-image: url('https://res.cloudinary.com/dv7nx2bxb/image/upload/v1718131825/travel-next/wkrmm34f8m6kv1u5k6nw.png');
+    background-size: cover;
+    display: flex;
+justify-content: center;
 }
-.background {
-    width: 100%;
-    height: auto;
-}
-.createTravelForm{
+.create-travel-form{
     position: absolute;
     width: 100%;
     top: 10rem;

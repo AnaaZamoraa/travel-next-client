@@ -9,7 +9,7 @@ class UploadServices {
         })
     }
 
-    uploadimage(imageForm) {
+    async uploadImage(imageForm) {
         return this.api.post('/image', imageForm)
     }
 }
