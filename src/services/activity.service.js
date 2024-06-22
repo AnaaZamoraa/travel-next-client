@@ -21,8 +21,8 @@ class ActivityService {
 
     }
 
-    createActivity(activityData) {
-        return this.api.post(`/create`, activityData);
+    createActivity(activity) {
+        return this.api.post(`/create`, activity);
     }
 
     getValidTypes() {

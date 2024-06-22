@@ -1,16 +1,18 @@
-.create-travel-page{ 
+.create-travel-page {
     position: relative;
+    margin-top: 60px;
+    height: calc(100vh - 60px);
     background-image: url('https://res.cloudinary.com/dv7nx2bxb/image/upload/v1718131825/travel-next/wkrmm34f8m6kv1u5k6nw.png');
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
-justify-content: center;
+    justify-content: center;
+    align-items: center;
 }
 .create-travel-form{
     position: absolute;
-    width: 100%;
-    top: 10rem;
+    top: 4rem;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
 }

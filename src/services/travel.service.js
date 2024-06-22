@@ -21,8 +21,8 @@ class TravelService {
 
     }
 
-    createTravel(travelData) {
-        return this.api.post(`/create`, travelData);
+    createTravel(travel) {
+        return this.api.post(`/create`, travel);
     }
 }
 

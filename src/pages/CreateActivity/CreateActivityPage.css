@@ -1,16 +1,23 @@
-.create-activity-page{ 
+.create-activity-page {
     position: relative;
-    background-image: url('https://res.cloudinary.com/dv7nx2bxb/image/upload/v1718131825/travel-next/wkrmm34f8m6kv1u5k6nw.png');
+    margin-top: 60px;
+    height: calc(100vh - 60px);
+    background-image: url('https://res.cloudinary.com/dv7nx2bxb/image/upload/v1719069469/travel-next/icc5n6gxrvsauaaptbqf.png');
     background-size: cover;
-    display: flex;
-justify-content: center;
-}
-.create-activity-form{
-    position: absolute;
-    width: 100%;
-    top: 10rem;
-    left: 50%;
-    transform: translateX(-50%);
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.create-activity-form {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
 }

@@ -44,16 +44,17 @@ const Dropzone = ({ maxFiles, onFilesChange }) => {
     return (
         <div {...getRootProps({ className: 'dropzone' })}>
             <input {...getInputProps()} />
-            <p>Drag 'n' drop some files here, or click to select files</p>
-            <ul>
+            <p>Upload your images here (max {maxFiles} files)</p>
+            <div className="image-preview-container">
                 {files.map((fileWrapper, index) => (
-                    <div key={index}>
-                        <Image src={fileWrapper.preview} width="150" />
+                    <div key={index} className="image-wrapper">
+                        <Image src={fileWrapper.preview} className="image-preview" width="150" />
                         <button onClick={(event) => handleDeleteImage(index, event)}>x</button>
                     </div>
                 ))}
-            </ul>
+            </div>
         </div>
+
     );
 };
 

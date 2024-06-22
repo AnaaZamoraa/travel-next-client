@@ -1,23 +1,14 @@
-.createForm {
+.create-travel {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 40rem;
 }
-
+/* 
 .input {
     text-align: left;
     text-size-adjust: 3rem;
-}
-
-.dropzone {
-    border: 2px dashed #6c757d;
-    border-radius: 5px;
-    background: #f8f9fa;
-    padding: 20px;
-    text-align: center;
-    cursor: pointer;
 }
 
 .dropzone p {
@@ -42,4 +33,4 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
+} */

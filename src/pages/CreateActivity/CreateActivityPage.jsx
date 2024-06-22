@@ -1,14 +1,12 @@
 import './CreateActivityPage.css'
 import CreateActivityForm from '../../components/CreateActivityForm/CreateActivityForm'
-import activityService from '../../services/activity.service'
 
-function CreateActivityPage (){
-
+function CreateActivityPage() {
     return (
         <div className='create-activity-page'>
-            <img src='' alt='' className='background'/>
             <div className='create-activity-form'>
-                <CreateActivityForm/>
+                <h5>Create an activity</h5>
+                <CreateActivityForm showSubmitButton={true}/>
             </div>
         </div>
     )
