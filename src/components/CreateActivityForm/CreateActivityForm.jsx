@@ -6,7 +6,7 @@ import activityService from '../../services/activity.service';
 import Dropzone from '../Dropzone/Dropzone';
 import { ToastContext } from '../../contexts/toast.context';
 
-function CreateActivityForm({showSubmitButton = true}) {
+function CreateActivityForm({ showSubmitButton = true}) {
     const { showToast } = useContext(ToastContext);
     const [validTypes, setValidTypes] = useState([]);
     const [loading, setLoading] = useState(false)
@@ -19,20 +19,21 @@ function CreateActivityForm({showSubmitButton = true}) {
         ratings: []
     });
 
+    
     useEffect(() => {
         activityService
-            .getValidTypes()
-            .then(response => {
-                setValidTypes(response.data);
+        .getValidTypes()
+        .then(response => {
+            setValidTypes(response.data);
             })
             .catch(error => {
                 console.error('Error fetching valid types:', error);
             });
-    }, []);
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setActivity({ ...activity, [name]: value });
+        }, []);
+        
+        const handleInputChange = (e) => {
+            const { name, value } = e.target;
+            setActivity({ ...activity, [name]: value });
     };
 
     const handleFilesChange = (newFiles) => {
