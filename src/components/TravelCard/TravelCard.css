@@ -1,0 +1,33 @@
+.TravelCard {
+    margin: 20px 0;
+}
+
+.TravelCard .card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+}
+
+.TravelCard .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.TravelCard .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.TravelCard .card-title {
+    font-size: 1.5em;
+}
+
+.TravelCard .card-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.TravelCard .card-link {
+    text-decoration: none;
+    color: inherit;
+}

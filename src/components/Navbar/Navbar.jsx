@@ -40,8 +40,8 @@ function MyNavbar() {
                 height="40" 
               />
             </Navbar.Brand>
-            <Navbar.Brand as={Link} to="/all-travels" className="display-6">Every travel</Navbar.Brand>
-            <Navbar.Brand as={Link} to="/all-experiences" className="display-6">Every experience</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/travels/all-travels" className="display-6">Every travel</Navbar.Brand>
+            <Navbar.Brand as={Link} to="/activities/all-activities" className="display-6">Every activity</Navbar.Brand>
           </div>
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav>

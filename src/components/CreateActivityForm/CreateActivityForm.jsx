@@ -29,11 +29,11 @@ function CreateActivityForm({ showSubmitButton = true}) {
             .catch(error => {
                 console.error('Error fetching valid types:', error);
             });
-        }, []);
+    }, []);
         
-        const handleInputChange = (e) => {
-            const { name, value } = e.target;
-            setActivity({ ...activity, [name]: value });
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setActivity({ ...activity, [name]: value });
     };
 
     const handleFilesChange = (newFiles) => {

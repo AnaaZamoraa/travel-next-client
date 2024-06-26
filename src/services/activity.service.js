@@ -21,12 +21,14 @@ class ActivityService {
 
     }
 
+    getValidTypes() {
+        return this.api.get(`/valid-types`);
+    }
     createActivity(activity) {
         return this.api.post(`/create`, activity);
     }
-
-    getValidTypes() {
-        return this.api.get(`/valid-types`);
+    getAllActivities(){
+        return this.api.get('/all-activities')
     }
 }
 

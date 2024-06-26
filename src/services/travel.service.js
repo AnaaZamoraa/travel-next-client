@@ -24,6 +24,12 @@ class TravelService {
     createTravel(travel) {
         return this.api.post(`/create`, travel);
     }
+    getAllTravels(){
+        return this.api.get('/all-travels')
+    }
+    getTravelById(id){
+        return this.api.get(`/${id}`)
+    }
 }
 
 const travelService = new TravelService();
