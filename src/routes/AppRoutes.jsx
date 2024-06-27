@@ -6,6 +6,7 @@ import CreateActivityPage from "../pages/CreateActivity/CreateActivityPage";
 import EveryTravelPage from "../pages/EveryTravel/EveryTravelPage";
 import EveryActivityPage from "../pages/EveryActivityPage/EveryActivityPage";
 import TravelDetailsPage from "../pages/TravelDetails/TravelDetailsPage";
+import ActivityDetailsPage from "../pages/ActivityDetails/ActivityDetailsPage";
 
 const AppRoutes = () => {
     return(
@@ -18,6 +19,7 @@ const AppRoutes = () => {
                 <Route path="/travels/create" element={<CreateTravelPage/>}/>
                 <Route path="/activities/create" element={<CreateActivityPage/>}/>
                 <Route path="/travels/:id" element={<TravelDetailsPage/>}/>
+                <Route path="/activities/:id" element={<ActivityDetailsPage/>}/>
             </Route>
         </Routes>
     )
