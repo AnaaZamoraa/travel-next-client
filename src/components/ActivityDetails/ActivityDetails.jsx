@@ -8,19 +8,23 @@ function ActivityDetails({ title, type, pictures, description }) {
                 <h1 className='title'>{title}</h1>
                 <Row>
                     <Col md={7}>
+                    <div className="carousel-wrapper">
                         {pictures && pictures.length > 0 && (
-                            <Carousel className='carousel' controls={pictures.length > 1 ? true : false}>
+                            <Carousel className="carousel" controls={pictures.length > 1 ? true : false}>
                                 {pictures.map((picture, index) => (
-                                    <Carousel.Item key={index}>
-                                        <img
-                                            className="d-block w-100"
-                                            src={picture}
-                                            alt={`Slide ${index}`}
-                                        />
+                                    <Carousel.Item key={index} className="carousel-item">
+                                        <div className="image-wrapper">
+                                            <img
+                                                className="carousel-image"
+                                                src={picture}
+                                                alt={`Slide ${index}`}
+                                            />
+                                        </div>
                                     </Carousel.Item>
                                 ))}
                             </Carousel>
                         )}
+                    </div>
                     </Col>
                     <Col md={5}>
                         <Card.Body className='card-body'>

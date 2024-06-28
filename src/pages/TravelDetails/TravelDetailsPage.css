@@ -1,11 +1,10 @@
 .travel-details-page {
     position: relative;
-    margin-top: 60px;
-    height: calc(100vh - 60px);
-    background-image: url('https://res.cloudinary.com/dv7nx2bxb/image/upload/v1719506317/travel-next/syfomlteuo5xtbj0r4wj.jpg');
+    background-image: url('https://res.cloudinary.com/dv7nx2bxb/image/upload/v1719590337/travel-next/df1jn4bin8icljg8qzii.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;

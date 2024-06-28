@@ -1,6 +1,7 @@
 .travel-details {
     display: flex;
     justify-content: center;
+    margin-top: 100px;
 }
 
 .travel-details-card {
@@ -28,4 +29,18 @@
 
 .card-text{
     text-align: left;
+}
+
+.activities-list {
+    margin-top: 40px;
+    border: 1px solid #ccc; /* Borde alrededor de cada actividad */
+    border-radius: 8px; /* Bordes redondeados para suavizar la apariencia */
+    padding: 15px; /* Espaciado interno para separar contenido del borde */
+    background-color: #f9f9f9; /* Fondo gris claro */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para efecto de elevación */
+    gap: 1rem;
+}
+.activities-list .activity-details {
+    margin-top: 20px; /* Espacio arriba de la lista de actividades */
+
 }

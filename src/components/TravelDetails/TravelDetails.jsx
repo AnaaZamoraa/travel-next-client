@@ -32,17 +32,17 @@ function TravelDetails({ title, days, persons, pictures, activities, tips}) {
                     </Col>
                 </Row>
                 <div className='activities-list'>
-                <h2>Activities</h2>
-                {activities && activities.map((activity) => (
-                    <ActivityDetails
-                        key={activity._id}
-                        title={activity.title}
-                        type={activity.type}
-                        pictures={activity.pictures}
-                        description={activity.description}
-                    />
-                ))}
-            </div>
+                    <h2>Activities</h2>
+                    {activities && activities.map((activity) => (
+                        <ActivityDetails className="activity-details"
+                            key={activity._id}
+                            title={activity.title}
+                            type={activity.type}
+                            pictures={activity.pictures}
+                            description={activity.description}
+                        />
+                    ))}
+                </div>
             </Card>
         </div>
     );

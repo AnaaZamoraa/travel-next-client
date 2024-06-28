@@ -19,16 +19,18 @@ function TravelDetailsPage() {
     }, [id]);
     return (
       <div className='travel-details-page'>
-        {travel && (
-                    <TravelDetails
-                        title={travel.title}
-                        days={travel.days}
-                        persons={travel.persons}
-                        pictures={travel.pictures}
-                        activities={travel.activities}
-                        tips={travel.tips}
-                    />
-                )}
+        <div className='details'>
+          {travel && (
+            <TravelDetails
+            title={travel.title}
+            days={travel.days}
+            persons={travel.persons}
+            pictures={travel.pictures}
+            activities={travel.activities}
+            tips={travel.tips}
+            />
+          )}
+        </div>
       </div>
     );
   }
