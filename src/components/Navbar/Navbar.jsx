@@ -67,7 +67,7 @@ function MyNavbar() {
                     <Offcanvas.Body>
                       <Nav className="justify-content-end flex-grow-1 pe-3 text-start">
                         <NavDropdown title="Your profile" id="basic-nav-dropdown">
-                          <NavDropdown.Item as={Link} to="/profile">Your travels and activities 🛩</NavDropdown.Item>
+                          <NavDropdown.Item as={Link} to={`/user/profile`}>Your travels and activities 🛩</NavDropdown.Item>
                           <NavDropdown.Item as={Link} to="/favorites">Your favorites ✨</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link as={Link} to="/travels/create">Create a new travel</Nav.Link>

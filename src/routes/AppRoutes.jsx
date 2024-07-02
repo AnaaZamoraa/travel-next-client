@@ -7,6 +7,7 @@ import EveryTravelPage from "../pages/EveryTravel/EveryTravelPage";
 import EveryActivityPage from "../pages/EveryActivityPage/EveryActivityPage";
 import TravelDetailsPage from "../pages/TravelDetails/TravelDetailsPage";
 import ActivityDetailsPage from "../pages/ActivityDetails/ActivityDetailsPage";
+import ProfilePage from "../pages/Profile/ProfilePage";
 
 const AppRoutes = () => {
     return(
@@ -20,6 +21,7 @@ const AppRoutes = () => {
                 <Route path="/activities/create" element={<CreateActivityPage/>}/>
                 <Route path="/travels/:id" element={<TravelDetailsPage/>}/>
                 <Route path="/activities/:id" element={<ActivityDetailsPage/>}/>
+                <Route path="/user/profile" element={<ProfilePage/>}/>
             </Route>
         </Routes>
     )

@@ -1,6 +1,4 @@
 import axios from 'axios'
-
-
 class UserService {
 
     constructor() {
@@ -22,7 +20,7 @@ class UserService {
 
     }
 
-    getUser(id) {
+    profile(id) {
         return this.api.get(`/profile/${id}`)
     }
     editUser(id, userData) {

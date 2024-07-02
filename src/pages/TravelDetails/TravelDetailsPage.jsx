@@ -5,7 +5,7 @@ import travelService from '../../services/travel.service';
 import { useEffect, useState } from 'react';
 
 function TravelDetailsPage() {
-  const { id } = useParams()
+    const { id } = useParams()
     const [travel, setTravel] = useState(null);
 
     useEffect(() => {

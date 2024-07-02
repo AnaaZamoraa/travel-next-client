@@ -12,12 +12,14 @@ function TravelDetails({ title, days, persons, pictures, activities, tips}) {
                         {pictures && pictures.length > 0 && (
                             <Carousel className='carousel' controls={pictures.length > 1 ? true : false}>
                                 {pictures.map((picture, index) => (
-                                    <Carousel.Item key={index}>
-                                        <img
-                                            className="d-block w-100"
-                                            src={picture}
-                                            alt={`Slide ${index}`}
-                                        />
+                                    <Carousel.Item key={index} className='carousel-item'>
+                                        <div className="image-wrapper">
+                                            <img
+                                                className="d-block w-100 carousel-image"
+                                                src={picture}
+                                                alt={`Slide ${index}`}
+                                            />
+                                        </div>
                                     </Carousel.Item>
                                 ))}
                             </Carousel>

@@ -8,7 +8,8 @@ function EveryTravelPage (){
     const [travels, setTravels] = useState([])
 
     useEffect(() => {
-        travelService.getAllTravels()
+        travelService
+            .getAllTravels()
             .then(response => setTravels(response.data))
             .catch(err => console.error(err))
     }, [])

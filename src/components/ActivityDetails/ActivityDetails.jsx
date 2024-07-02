@@ -8,7 +8,6 @@ function ActivityDetails({ title, type, pictures, description }) {
                 <h1 className='title'>{title}</h1>
                 <Row>
                     <Col md={7}>
-                    <div className="carousel-wrapper">
                         {pictures && pictures.length > 0 && (
                             <Carousel className="carousel" controls={pictures.length > 1 ? true : false}>
                                 {pictures.map((picture, index) => (
@@ -24,7 +23,6 @@ function ActivityDetails({ title, type, pictures, description }) {
                                 ))}
                             </Carousel>
                         )}
-                    </div>
                     </Col>
                     <Col md={5}>
                         <Card.Body className='card-body'>
