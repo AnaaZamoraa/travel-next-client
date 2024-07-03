@@ -30,6 +30,9 @@ class TravelService {
     getTravelById(id){
         return this.api.get(`/${id}`)
     }
+    getTravelsByUser(){
+        return this.api.get(`/me`)
+    };
 }
 
 const travelService = new TravelService();
