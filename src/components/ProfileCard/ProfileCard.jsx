@@ -10,15 +10,21 @@ function ProfileCard({ username, email, avatar, age }) {
                         <Card.Img src={avatar} style={{ width: '10rem', margin: 'auto' }} />
                     </Col>
                     <Col>
-                        <Card.Title className="profile-card-title">Welcome to your profile, {username}</Card.Title>
-                        <Card.Text className="profile-card-text">
-                            <Row>
-                                Your email: {email}
-                            </Row>
-                            <Row>
-                                Your age: {age}
-                            </Row>
-                        </Card.Text>
+                        <Card.Body>
+                            <Card.Title className="profile-card-title">Welcome to your profile, {username}</Card.Title>
+                            <Card.Text>
+                                <Row>
+                                    <Col>
+                                        Your email: {email}
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                        Your age: {age}
+                                    </Col>
+                                </Row>
+                            </Card.Text>
+                        </Card.Body>
                     </Col>
                 </Row>
             </Card>

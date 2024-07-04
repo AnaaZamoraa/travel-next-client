@@ -30,12 +30,12 @@ class ActivityService {
     getAllActivities(){
         return this.api.get('/all-activities')
     }
-    getActivityById(id){
-        return this.api.get(`/${id}`)
-    }
     getActivitiesByUser(){
         return this.api.get(`/me`)
     };
+    getActivityById(id){
+        return this.api.get(`/${id}`)
+    }
 }
 
 const activityService = new ActivityService();

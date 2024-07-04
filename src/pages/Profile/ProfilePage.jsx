@@ -22,7 +22,8 @@ function ProfilePage() {
                 })
                 .catch(err => console.error(err));
     
-            travelService.getTravelsByUser()
+            travelService
+                .getTravelsByUser()
                 .then(({ data }) => {
                     console.log("Travels data:", data);
                     setUserTravels(data);
