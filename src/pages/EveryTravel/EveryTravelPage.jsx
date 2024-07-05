@@ -9,7 +9,7 @@ function EveryTravelPage (){
 
     useEffect(() => {
         travelService
-            .getAllTravels()
+            .getTravels()
             .then(response => setTravels(response.data))
             .catch(err => console.error(err))
     }, [])

@@ -24,8 +24,8 @@ class TravelService {
     createTravel(travel) {
         return this.api.post(`/create`, travel);
     }
-    getAllTravels(){
-        return this.api.get('/all-travels')
+    getTravels(){
+        return this.api.get('/get-travels')
     }
     getTravelById(id){
         return this.api.get(`/${id}`)

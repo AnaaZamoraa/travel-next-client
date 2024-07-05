@@ -27,8 +27,8 @@ class ActivityService {
     createActivity(activity) {
         return this.api.post(`/create`, activity);
     }
-    getAllActivities(){
-        return this.api.get('/all-activities')
+    getActivities(query){
+        return this.api.get(`/get-activities?persons=${query}`)
     }
     getActivitiesByUser(){
         return this.api.get(`/me`)

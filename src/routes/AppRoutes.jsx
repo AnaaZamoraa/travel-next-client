@@ -12,18 +12,20 @@ import ProfilePage from "../pages/Profile/ProfilePage";
 const AppRoutes = () => {
     return(
         <Routes>
-            <Route path='/' element={<HomePage/>}/>
-            <Route path="/travels/all-travels" element={<EveryTravelPage/>}/>
-            <Route path="/activities/all-activities" element={<EveryActivityPage/>}/>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/travels/:id" element={<TravelDetailsPage />} />
+            <Route path="/activities/:id" element={<ActivityDetailsPage />} />
+            <Route path="/travels/all-travels" element={<EveryTravelPage />} />
+            <Route path="/activities/all-activities" element={<EveryActivityPage />} />
+            <Route path="/search-activities" element={<EveryActivityPage />} />
+            <Route path="/search-travels" element={<EveryTravelPage />} />
             
-            <Route element={<PrivateRoute/>}>
-                <Route path="/travels/create" element={<CreateTravelPage/>}/>
-                <Route path="/activities/create" element={<CreateActivityPage/>}/>
-                <Route path="/travels/:id" element={<TravelDetailsPage/>}/>
-                <Route path="/activities/:id" element={<ActivityDetailsPage/>}/>
-                <Route path="/user/profile" element={<ProfilePage/>}/>
+            <Route element={<PrivateRoute />}>
+                <Route path="/travels/create" element={<CreateTravelPage />} />
+                <Route path="/activities/create" element={<CreateActivityPage />} />
+                <Route path="/user/profile" element={<ProfilePage />} />
             </Route>
-        </Routes>
+      </Routes>
     )
 }
 

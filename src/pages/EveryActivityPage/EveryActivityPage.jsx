@@ -3,15 +3,24 @@ import ActivityCard from '../../components/ActivityCard/ActivityCard'
 import { useEffect, useState } from 'react'
 import activityService from '../../services/activity.service'
 import { Col, Row, Container } from 'react-bootstrap'
+import { useLocation } from 'react-router-dom'
 
 function EveryActivityPage (){
-    const [activities, setActivity] = useState([])
+    const [activities, setActivities] = useState([])
+    const location = useLocation()
 
     useEffect(() => {
-        activityService.getAllActivities()
-            .then(response => setActivity(response.data))
+        const query = new URLSearchParams(location.search)
+        const searchParams = {
+            location: query.get('location') || '',
+            type: query.get('type') || ''
+        }
+    
+        activityService
+            .getActivities(searchParams)
+            .then(response => setActivities(response.data))
             .catch(err => console.error(err))
-    }, [])
+        }, [location.search])
 
     return (
         <Container className='every-activity-page'>
